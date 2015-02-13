@@ -8,9 +8,6 @@ import util.HibernateUtil;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created by Nikolai on 13.02.2015.
- */
 
 public class ContactDaoImpl implements ContactDao {
 
@@ -40,7 +37,9 @@ public class ContactDaoImpl implements ContactDao {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.delete(contact);
+            session.flush();
             session.getTransaction().commit();
+
         } catch(Exception e){
             e.printStackTrace();
 
@@ -54,11 +53,12 @@ public class ContactDaoImpl implements ContactDao {
     @Override
     public Contact getContact(int id) throws SQLException {
         Contact result = null;
-
         Session session= null;
         try{
             session = HibernateUtil.getSessionFactory().openSession();
-            result = (Contact) session.load(Contact.class, id);
+            session.beginTransaction();
+            result = (Contact) session.get(Contact.class, id);
+            session.getTransaction().commit();
 
         } catch(Exception e){
             e.printStackTrace();
@@ -67,16 +67,17 @@ public class ContactDaoImpl implements ContactDao {
             if((session!= null)&& (session.isOpen()))
                 session.close();
         }
+
         return result;
     }
 
     @Override
-    public List<Contact> getContacts() {
+    public List<Contact> getContacts() throws SQLException {
         List<Contact> resultList = null;
         Session session= null;
         try{
             session = HibernateUtil.getSessionFactory().openSession();
-            resultList =  session.createCriteria(Contact.class).list();
+            resultList = session.createCriteria(Contact.class).list();
 
         } catch(Exception e){
             e.printStackTrace();
@@ -85,7 +86,7 @@ public class ContactDaoImpl implements ContactDao {
             if((session!= null)&& (session.isOpen()))
                 session.close();
         }
-
         return resultList;
     }
+
 }

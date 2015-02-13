@@ -2,10 +2,6 @@ package model;
 
 import javax.persistence.*;
 
-/**
- * Created by Nikolai on 13.02.2015.
- */
-
 @Entity
 @Table(name = "contact")
 public class Contact {
