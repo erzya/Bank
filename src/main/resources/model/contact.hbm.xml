@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "model.Contact" table = "contact">
+        <id name = "id" column = "contact_id" type = "java.lang.Integer">
+            <generator class="increment"/>
+        </id>
+
+        <property name="mobileOne" column="mobile_1" type="java.lang.String"/>
+        <property name="mobileTwo" column="mobile_2" type="java.lang.String"/>
+        <property name="homeNumber" column="home_number" type="java.lang.String"/>
+        <property name="email" column="email" type="java.lang.String"/>
+
+    </class>
+</hibernate-mapping>
