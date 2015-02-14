@@ -9,6 +9,14 @@
     <version>1.0-SNAPSHOT</version>
     <name>Bank</name>
     <url>http://maven.apache.org</url>
+    <properties>
+        <MySQL.version>5.1.9</MySQL.version>
+        <hibernate.version>4.3.8.Final</hibernate.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <commons-logging.version>1.1.1</commons-logging.version>
+        <commons-collections.version>3.2.1</commons-collections.version>
+        <cglib.version>2.2</cglib.version>
+    </properties>
 
 
     <dependencies>
@@ -17,7 +25,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.9</version>
+            <version>${MySQL.version}</version>
         </dependency>
 
 
@@ -28,7 +36,7 @@
 
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.3.8.Final</version>
+            <version>${hibernate.version}</version>
 
         </dependency>
 
@@ -36,25 +44,25 @@
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
+            <version>${dom4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.1.1</version>
+            <version>${commons-logging.version}</version>
         </dependency>
 
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
+            <version>${commons-collections.version}</version>
         </dependency>
 
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>2.2</version>
+            <version>${cglib.version}</version>
         </dependency>
     </dependencies>
 
