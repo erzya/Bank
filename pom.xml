@@ -16,6 +16,7 @@
         <commons-logging.version>1.1.1</commons-logging.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <cglib.version>2.2</cglib.version>
+        <javassist.version>3.12.1.GA</javassist.version>
     </properties>
 
 
@@ -28,7 +29,18 @@
             <version>${MySQL.version}</version>
         </dependency>
 
+        <!-- Hibernate c3p0 connection pool -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${javassist.version}</version>
+        </dependency>
 
 
         <!-- Hibernate framework -->

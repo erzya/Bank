@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "model.Currency" table="valute" catalog="mydb">
+
+        <id name = "id" column="valute_id" type = "java.lang.Integer">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name_valute" unique="true" not-null="true"/>
+        </property>
+        <property name="rate" type="java.lang.Integer">
+            <column name="exchange_rate" not-null="true"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

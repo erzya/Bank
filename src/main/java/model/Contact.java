@@ -1,30 +1,20 @@
 package model;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "contact")
-public class Contact {
-    @Id
-    @Column(name="contact_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class Contact implements Serializable {
+
     private int id;
 
-    @Column(name = "mobile_1")
     private String mobileOne;
-
-    @Column(name = "mobile_2")
     private String mobileTwo;
-
-    @Column(name = "home_number")
     private String homeNumber;
-
-    @Column(name = "email")
     private String email;
 
-    public Contact() {
+    public Contact(){
 
     }
+
     public Contact(String mobileOne, String homeNumber,String email){
         this.mobileOne = mobileOne;
         this.email = email;
