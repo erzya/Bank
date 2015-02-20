@@ -1,12 +1,15 @@
 package model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Currency implements Serializable {
 
     private int id;
     private String name;
     private int rate;
+    private Set<Deposit> depositSet = new HashSet<Deposit>(0);
 
     public Currency(){
 
@@ -42,6 +45,11 @@ public class Currency implements Serializable {
         this.rate = rate;
     }
 
+    public Set<Deposit> getDepositSet() {
+        return depositSet;
+    }
 
-
+    public void setDepositSet(Set<Deposit> depositSet) {
+        this.depositSet = depositSet;
+    }
 }

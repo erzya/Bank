@@ -10,6 +10,8 @@ public class Contact implements Serializable {
     private String mobileTwo;
     private String homeNumber;
     private String email;
+    private PersonalData personalData;
+
 
     public Contact(){
 
@@ -66,5 +68,13 @@ public class Contact implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public PersonalData getPersonalData() {
+        return personalData;
+    }
+
+    public void setPersonalData(PersonalData personalData) {
+        this.personalData = personalData;
     }
 }

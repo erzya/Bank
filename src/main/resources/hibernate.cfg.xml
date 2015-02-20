@@ -21,6 +21,11 @@
         <mapping resource="model/contact.hbm.xml"/>
         <mapping resource="model/deposit.hbm.xml"/>
         <mapping resource="model/currency.hbm.xml"/>
+        <mapping resource="model/merchant.hbm.xml"/>
+        <mapping resource="model/account.hbm.xml"/>
+        <mapping resource="model/personaldata.hbm.xml"/>
+        <mapping resource="model/transaction.hbm.xml"/>
+
 
         
     </session-factory>

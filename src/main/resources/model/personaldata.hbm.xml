@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.PersonalData" table="personal_data" catalog="mydb">
+        <id name="id" column="person_id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="passport" type="java.lang.String">
+            <column name="passport_id" not-null="true" unique="true"/>
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="last_name" not-null="true"/>
+        </property>
+        <property name="firstName" type="java.lang.String">
+            <column name="first_name" not-null="true"/>
+        </property>
+        <property name="middleName" type="java.lang.String">
+            <column name="second_name"/>
+        </property>
+        <property name="birthDate" type="java.sql.Date">
+            <column name="birthDate"  not-null="true" unique="false"/>
+        </property>
+        <one-to-one name="contact" class="model.Contact" cascade="save-update"/>
+        <many-to-one name="account" class="model.Account" cascade="save-update">
+            <column name="account_id"/>
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>

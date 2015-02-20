@@ -5,7 +5,7 @@
     <class name = "model.Contact" table = "contact">
 
         <id name = "id" column = "contact_id" type = "java.lang.Integer">
-            <generator class="increment"/>
+            <generator class="native"/>
         </id>
 
         <property name="mobileOne" type="java.lang.String">
@@ -20,6 +20,7 @@
         <property name="email" type="java.lang.String">
             <column name="email" not-null="true" unique="true"/>
         </property>
+        <one-to-one name="personalData" class="model.PersonalData" constrained="true"/>
 
     </class>
 </hibernate-mapping>

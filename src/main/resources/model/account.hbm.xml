@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Account" table="account" catalog="mydb">
+        <id name="id" type="java.lang.Integer">
+            <column name="account_id"/>
+            <generator class="native"/>
+        </id>
+        <property name="dateCreate" type="java.util.Date">
+            <column name="date_opened" not-null="true" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>
+        </property>
+        <property name="currentBalance" type="java.lang.Integer">
+            <column name="current_balance" not-null="true"/>
+        </property>
+        <many-to-one name="deposit" class="model.Deposit" cascade="save-update">
+            <column name="deposit_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="transaction" class="model.Transaction">
+            <column name="transaction_id"/>
+        </many-to-one>
+        <set name="personalDataSet" table="personal_data" lazy="true">
+            <key>
+                <column name="person_id" unique="true"/>
+            </key>
+            <one-to-many class="model.PersonalData"/>
+        </set>
+
+    </class>
+</hibernate-mapping>        

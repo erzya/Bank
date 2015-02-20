@@ -20,14 +20,15 @@ public class Enter {
       contactDao.delete(contactDao.findOne(2));
       contactDao.delete(contactDao.findOne(3));*/
 
-    /*    currencyDao.add(new Currency("dollar", 15));
+     /*   currencyDao.add(new Currency("dollar", 15));
         currencyDao.add(new Currency("euro", 25));
         currencyDao.add(new Currency("eurouykyu", 45));*/
 
 
 
-  /*  System.out.println(contactDao.findOne(3));
-        System.out.println(currencyDao.findOne(1));*/
+    System.out.println(currencyDao.findOne(1));
+        System.out.println(currencyDao.findOne(2));
+        System.out.println(currencyDao.findOne(3));
 
 
         /*contactDao.add(new Contact("23453", "second", "gfdda"));

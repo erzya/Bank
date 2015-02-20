@@ -1,9 +1,8 @@
 package general;
 
 
-import dao.extendDao.ContactDao;
+import dao.extendDao.*;
 import dao.HibernateDao;
-import dao.extendDao.CurrencyDao;
 import model.Currency;
 
 
@@ -12,6 +11,9 @@ public class Factory {
     private static Factory instance = new Factory();
     private ContactDao contactDao;
     private CurrencyDao currencyDao;
+    private AccountDao accountDao;
+    private MerchantDao merchantDao;
+    private TransactionDao transactionDao;
 
     private Factory(){
 
@@ -31,5 +33,22 @@ public class Factory {
         if(currencyDao == null)
             currencyDao = new CurrencyDao();
         return currencyDao;
+    }
+
+    public HibernateDao getAccountDao(){
+        if(accountDao == null)
+            accountDao = new AccountDao();
+        return accountDao;
+    }
+    public HibernateDao getMerchantDao(){
+        if(merchantDao == null)
+            merchantDao = new MerchantDao();
+        return merchantDao;
+    }
+
+    public HibernateDao getTransactionDao(){
+        if(transactionDao == null)
+            transactionDao = new TransactionDao();
+        return transactionDao;
     }
 }

@@ -2,10 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name = "model.Currency" table="valute" catalog="mydb">
+    <class name= "model.Currency" table="valute" catalog="mydb">
 
-        <id name = "id" column="valute_id" type = "java.lang.Integer">
-            <generator class="increment"/>
+        <id name= "id" column="valute_id" type = "java.lang.Integer">
+            <generator class="native"/>
         </id>
         <property name="name" type="java.lang.String">
             <column name="name_valute" unique="true" not-null="true"/>
@@ -13,6 +13,12 @@
         <property name="rate" type="java.lang.Integer">
             <column name="exchange_rate" not-null="true"/>
         </property>
+        <set name="depositSet" table="deposit" inverse="true" lazy="true">
+            <key>
+                <column name="deposit_id" unique="true"/>
+            </key>
+            <one-to-many class="model.Deposit"/>
+        </set>
 
     </class>
 </hibernate-mapping>

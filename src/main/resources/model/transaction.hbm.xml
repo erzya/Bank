@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Transaction" table="transactions" catalog="mydb">
+        <id name="id" column="transaction_id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="amount" type="java.lang.Integer">
+            <column name="amount" not-null="true"/>
+        </property>
+        <property name="date" type="java.util.Date">
+            <column name="date_transaction" not-null="true" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description"/>
+        </property>
+        
+        <many-to-one name="merchant" class="model.Merchant" cascade="save-update">
+            <column name="merchant_id"/>
+        </many-to-one>
+
+        <set name="accounts" table="account" inverse="true" lazy="true">
+            <key>
+                <column name="account_id" unique="true"/>
+            </key>
+            <one-to-many class="model.Account"/>
+        </set>
+    </class>
+</hibernate-mapping>
