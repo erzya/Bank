@@ -5,7 +5,9 @@
     <class name = "model.Contact" table = "contact">
 
         <id name = "id" column = "contact_id" type = "java.lang.Integer">
-            <generator class="native"/>
+            <generator class="foreign">
+                <param name="property">personalData</param>
+            </generator>
         </id>
 
         <property name="mobileOne" type="java.lang.String">

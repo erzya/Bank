@@ -21,7 +21,7 @@
         <property name="birthDate" type="java.sql.Date">
             <column name="birthDate"  not-null="true" unique="false"/>
         </property>
-        <one-to-one name="contact" class="model.Contact" cascade="save-update"/>
+        <one-to-one name="contact" class="model.Contact" cascade="all"/>
         <many-to-one name="account" class="model.Account" cascade="save-update">
             <column name="account_id"/>
         </many-to-one>
